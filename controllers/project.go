@@ -23,3 +23,7 @@ func (ctrl ProjectController) Create(ctx *gin.Context) {
 	result = projectService.CreateProject(createProjectForm)
 	ctx.JSON(200, gin.H{"ceshi": "ceshi", "URl": result})
 }
+
+func (ctrl ProjectController) List(ctx *gin.Context) {
+	ctx.JSON(200, gin.H{"ceshi": "ceshi", "URl": "ceshi"})
+}

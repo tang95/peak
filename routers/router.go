@@ -6,9 +6,15 @@ import (
 )
 
 func RegisterRoute(router *gin.Engine) {
+	//主路由
+	ctrl := new(controllers.MainController)
+	router.GET("/", ctrl.Main)
+
+	//项目路由
 	project := router.Group("/api/project")
 	{
 		ctrl := new(controllers.ProjectController)
 		project.POST("/", ctrl.Create)
+		project.GET("/", ctrl.List)
 	}
 }

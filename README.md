@@ -14,3 +14,41 @@
 ├── vendor 依赖
 └── web 前端
 ```
+
+``` 
+# 后端开发：
+dep ensure -v
+go run main.go
+
+# 前端开发：
+cd web
+npm install 
+npm run dev
+
+# 打包（先打包后端文件）：
+cd web
+npm run build
+
+cd ..
+go build
+
+# 运行
+./peak -C config/config.yaml
+```
+
+
+### 配置文件
+
+```yaml
+mongo:
+  host: localhost
+  port: 27017
+  user: peak
+  pass: peak
+  db: peak
+
+server:
+  mode: release
+  port: 8080
+  host: 127.0.0.1
+```

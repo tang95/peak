@@ -12,11 +12,11 @@ var ERR error
 
 func Connect() {
 	config := config2.GetConfiguration()
-	addrs := fmt.Sprintf("%s:%s", config.MONGOHOST, config.MONGOPORT)
-	dialInfo := &mgo.DialInfo{Addrs: []string{addrs}, Source: config.MONGODB, Username: config.MONGOUSER, Password: config.MONGOPASS}
+	addrs := fmt.Sprintf("%s:%s", config.MONGO.HOST, config.MONGO.PORT)
+	dialInfo := &mgo.DialInfo{Addrs: []string{addrs}, Source: config.MONGO.DB, Username: config.MONGO.USER, Password: config.MONGO.PASS}
 	DB_SESSION, ERR = mgo.DialWithInfo(dialInfo)
 	if ERR != nil {
 		panic("连接数据库发生错误！")
 	}
-	DB = DB_SESSION.DB(config.MONGODB)
+	DB = DB_SESSION.DB(config.MONGO.DB)
 }

@@ -6,11 +6,18 @@ import (
 )
 
 type Configuration struct {
-	MONGOHOST string `yaml:"mongo_host"`
-	MONGOPORT string `yaml:"mongo_port"`
-	MONGOUSER string `yaml:"mongo_user"`
-	MONGOPASS string `yaml:"mongo_pass"`
-	MONGODB   string `yaml:"mongo_db"`
+	MONGO struct {
+		HOST string `yaml:"host"`
+		PORT string `yaml:"port"`
+		USER string `yaml:"user"`
+		PASS string `yaml:"pass"`
+		DB   string `yaml:"db"`
+	}
+	SERVER struct {
+		MODE string `yaml:"mode"`
+		PORT string `yaml:"port"`
+		HOST string `yaml:"host"`
+	}
 }
 
 var configuration *Configuration

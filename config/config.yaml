@@ -1,5 +1,11 @@
-mongo_host: localhost
-mongo_port: 27017
-mongo_user: peak
-mongo_pass: peak
-mongo_db: peak
+mongo:
+  host: localhost
+  port: 27017
+  user: peak
+  pass: peak
+  db: peak
+
+server:
+  mode: release
+  port: 8080
+  host: 127.0.0.1
