@@ -8,6 +8,7 @@ import (
 	log "github.com/sirupsen/logrus"
 	"os"
 	"peak/config"
+	"peak/handlers"
 	"peak/models"
 	"peak/routers"
 )
@@ -34,8 +35,14 @@ func init() {
 func main() {
 	conf := config.GetConfiguration()
 	gin.SetMode(conf.SERVER.MODE)
+
 	//初始化路由
 	router := gin.Default()
+
+	//初始化Socketio
+
+	go handlers.SocketIOServer.Serve()
+	defer handlers.SocketIOServer.Close()
 
 	//注册路由
 	routers.RegisterRoute(router)
